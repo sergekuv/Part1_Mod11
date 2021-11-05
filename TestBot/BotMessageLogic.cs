@@ -10,7 +10,7 @@ namespace TestBot
 {
     static class BotMessageLogic
     {
-        static readonly string glossaryPath = @"Data\glossary.csv";
+        static readonly string glossaryPath = "glossary.csv";
         private static Dictionary<long, ChatState> chats = new();
         private static List<DictionaryItem> glossary  = new();      // здесь, вероятно, подошел бы Dictionary, но нам же нужно искать и по русскому,
                                                                     // и по английскому написанию слова? Какая структура будет тут оптимальной?

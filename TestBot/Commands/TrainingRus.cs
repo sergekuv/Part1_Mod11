@@ -9,6 +9,9 @@ namespace TestBot
     {
         internal static string TrainingRus(Update input, Dictionary<long, ChatState> chats, List<DictionaryItem> glossary)
         {
+            if (glossary.Count == 0) 
+                return "сначала пополните словарь";
+
             Random rand = new();
             ChatState chatState = chats[input.Message.Chat.Id];
             string answer;

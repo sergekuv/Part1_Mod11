@@ -10,6 +10,9 @@ namespace TestBot
     {
         internal static string ShowDictionary(Update input, Dictionary<long, ChatState> chats, List<DictionaryItem> glossary)
         {
+            if (glossary.Count == 0)
+                return "словарь пуст";
+
             StringBuilder answer = new();
             foreach (DictionaryItem item in glossary)
             {
