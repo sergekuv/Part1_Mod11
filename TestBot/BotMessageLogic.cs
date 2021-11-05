@@ -12,7 +12,8 @@ namespace TestBot
     {
         static readonly string glossaryPath = @"Data\glossary.csv";
         private static Dictionary<long, ChatState> chats = new();
-        private static List<DictionaryItem> glossary  = new();
+        private static List<DictionaryItem> glossary  = new();      // здесь, вероятно, подошел бы Dictionary, но нам же нужно искать и по русскому,
+                                                                    // и по английскому написанию слова? Какая структура будет тут оптимальной?
 
         public static void LoadGlossary()       // Это можно очень по-разному реализовывать. Например, сделать свой словарь для каждого клиента
         {
@@ -61,7 +62,7 @@ namespace TestBot
                 System.Diagnostics.Debug.WriteLine("Adding a new chat");
             }
 
-            object[] parameters = new object[3]; //BotCommands.commands[msg].GetParameters();
+            object[] parameters = new object[3]; // Наверное, правильнее было бы делать это при помощи делегатов? Нужно посмотреть на досуге..
             parameters[0] = update;
             parameters[1] = chats;
             parameters[2] = glossary;
